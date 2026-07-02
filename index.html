@@ -1,0 +1,843 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>HIDDEN DRIFT BEATZ | Premium Yamaha Styles & Expansion Packs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a070c;
+            color: #ece8f0;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* PROFESSIONAL BACKGROUND IMAGE (Royal abstract gradient + overlay) */
+        .bg-royal-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image: url('bg2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.25) contrast(1.1);
+        }
+
+        /* Dark gradient overlay to ensure readability and royal depth */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(10,5,20,0.75), rgba(0,0,0,0.85));
+            z-index: -1;
+            backdrop-filter: blur(1px);
+        }
+        /* Subtle pattern texture over background */
+        .bg-royal-image::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('bg2.jpg');
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* HEADER with CUSTOM LOGO */
+        .hero-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.35);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+        }
+        .channel-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .logo-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f5b042;
+            box-shadow: 0 0 15px rgba(245,176,66,0.5);
+            background: #1a0e2a;
+            transition: transform 0.2s ease;
+        }
+        .logo-image:hover {
+            transform: scale(1.02);
+        }
+        .channel-name h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            letter-spacing: 1px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFE6B0, #FFB347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .channel-name p {
+            font-size: 0.85rem;
+            color: #e0d4f5;
+        }
+        .stats-mini {
+            display: flex;
+            gap: 2rem;
+            background: rgba(0,0,0,0.6);
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+        .stats-mini span i {
+            color: #f5b042;
+            margin-right: 6px;
+        }
+
+        /* trust stats banner */
+        .trust-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+        .stat-item {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .stat-item i {
+            color: #f5b042;
+            margin-right: 8px;
+        }
+        .social-links a {
+            color: #f0e9ff;
+            font-size: 1.6rem;
+            margin-left: 1.2rem;
+            transition: 0.2s;
+        }
+        .social-links a:hover {
+            color: #f5b042;
+            transform: scale(1.1);
+        }
+
+        /* Packs Grid */
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+        .pack-card {
+            background: rgba(15, 10, 25, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 1.6rem;
+            border: 1px solid rgba(255, 200, 100, 0.3);
+            transition: transform 0.25s, box-shadow 0.3s;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+        }
+        .pack-card:hover {
+            transform: translateY(-6px);
+            border-color: #f5b042;
+            box-shadow: 0 30px 40px -12px rgba(0,0,0,0.6);
+            background: rgba(20, 12, 32, 0.85);
+        }
+        .pack-title {
+            font-size: 1.7rem;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5rem;
+        }
+        .pack-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #f5b042;
+            margin: 0.75rem 0;
+        }
+        .pack-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin: 1.2rem 0 0.8rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.7rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-buy {
+            background: #f5b042;
+            color: #1e1029;
+            box-shadow: 0 4px 12px rgba(245,176,66,0.4);
+        }
+        .btn-buy:hover {
+            background: #ffc976;
+            transform: scale(0.97);
+        }
+        .btn-cart {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #f5b042;
+            color: #f5e6c7;
+        }
+        .btn-cart:hover {
+            background: rgba(245,176,66,0.2);
+        }
+        .view-details {
+            margin-top: 12px;
+            font-size: 0.75rem;
+            color: #e2c88a;
+            cursor: pointer;
+            text-decoration: underline;
+            display: inline-block;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #1e1629ea;
+            border-radius: 2rem;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+            border: 2px solid #f5b042;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #f5b042;
+        }
+        .modal-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px,1fr));
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+        .modal-list li {
+            list-style: none;
+            background: rgba(255,255,255,0.07);
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 400px;
+            height: 100%;
+            background: #0c081ae6;
+            backdrop-filter: blur(24px);
+            border-left: 3px solid #f5b042;
+            z-index: 1100;
+            transition: 0.35s ease;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            box-shadow: -8px 0 40px black;
+        }
+        .cart-sidebar.open {
+            right: 0;
+        }
+        .cart-header {
+            font-size: 1.6rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #f5b042;
+            padding-bottom: 1rem;
+        }
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            margin: 1.2rem 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.08);
+            margin: 0.7rem 0;
+            padding: 0.8rem;
+            border-radius: 1.2rem;
+        }
+        .cart-total {
+            font-size: 1.6rem;
+            font-weight: bold;
+            border-top: 1px solid gold;
+            padding-top: 1rem;
+        }
+        .checkout-btn {
+            background: #f5b042;
+            border: none;
+            padding: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .checkout-btn:hover {
+            background: #ffce7a;
+        }
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+        .cart-icon {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #f5b042;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+            z-index: 1050;
+            transition: 0.2s;
+        }
+        .cart-icon:hover {
+            transform: scale(1.05);
+            background: #ffbc54;
+        }
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #d43f1f;
+            border-radius: 30px;
+            width: 26px;
+            height: 26px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Checkout info form modal */
+        .info-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1200;
+            align-items: center;
+            justify-content: center;
+        }
+        .info-card {
+            background: #1e1629;
+            border-radius: 2rem;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #f5b042;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.6);
+        }
+        .info-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #f5b042;
+        }
+        .info-card input, .info-card textarea {
+            width: 100%;
+            padding: 12px 16px;
+            margin: 12px 0;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #f5b042;
+            border-radius: 40px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+        .info-card textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+        .info-card button {
+            background: #f5b042;
+            padding: 12px;
+            border-radius: 50px;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .info-card button:hover {
+            background: #ffce7a;
+        }
+        .close-info {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #f5b042;
+        }
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(245,176,66,0.25);
+            padding: 2rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 40px;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            .hero-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .stats-mini { width: 100%; justify-content: space-between; }
+            .cart-sidebar { width: 100%; right: -100%; }
+        }
+        .highlight-badge { color: #f5b042; }
+    </style>
+</head>
+<body>
+<div class="bg-royal-image"></div>
+<div class="bg-overlay"></div>
+
+<div class="container">
+    <div class="hero-header">
+        <div class="channel-brand">
+            <img src="https://yt3.ggpht.com/svGuSF2AvDla2xF4sv-GZugL_6k3Fuabxi_Y8Hai3kfUcJpF8od_m4PIApsSyExUainWgddzIm4=s600-c-k-c0x00ffffff-no-rj-rp-mo" alt="HDB Logo" class="logo-image" onerror="this.src='https://placehold.co/70x70/1a0e2a/f5b042?text=HDB'">
+            <div class="channel-name">
+                <h1>HIDDEN DRIFT BEATZ</h1>
+                <p>Yamaha Styles | Expansion Packs | Premium Sounds</p>
+            </div>
+        </div>
+        <div class="stats-mini">
+            <span><i class="fas fa-smile-wink"></i> Ready For Your Next Performance!!</span>
+        </div>
+    </div>
+
+    <div class="trust-stats">
+        <div class="stat-item"><i class="fas fa-user-check"></i> 200+ Happy Customers</div>
+        <div class="stat-item"><i class="fas fa-cloud-download-alt"></i> 1,00,000+ Free Downloads user</div>
+        <div class="stat-item"><i class="fas fa-certificate"></i> 100% Trusted By Customers</div>
+        <div class="stat-item"><i class="fas fa-circle-check"></i> Future Updates</div>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@hiddendriftbeatz" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/hidden_drift_beatz?igsh=bWszOGRnMXIwcWxy" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/people/Hidden-Drift-Beatz/61584873220365/?rdid=Z5KaZqIk4J6AoOXz&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CJ1W5LCK8%2F" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:hiddendriftbeatz@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+
+    <div class="packs-grid" id="packsContainer"></div>
+
+    <footer>
+        <p>© 2026 HIDDEN DRIFT BEATZ — Owned by <strong>Antrich</strong>. All rights reserved.</p>
+        <p><i class="fas fa-envelope"></i> hiddendriftbeatz@gmail.com | <i class="fab fa-whatsapp"></i> WhatsApp: 9629340744</p>
+    </footer>
+</div>
+
+<div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <span>🛒 Your Cart</span>
+        <button class="close-cart" id="closeCartBtn">×</button>
+    </div>
+    <div id="cartItemsList" class="cart-items">
+        <p style="opacity:0.7">Cart is empty</p>
+    </div>
+    <div class="cart-total" id="cartTotal">Total: ₹0</div>
+    <button class="checkout-btn" id="checkoutBtn"><i class="fab fa-whatsapp"></i> Checkout via WhatsApp</button>
+</div>
+
+<div class="cart-icon" id="cartIcon">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cartCountBadge" class="cart-count">0</span>
+</div>
+
+<div id="detailsModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" id="closeModalBtn">×</span>
+        <h2 id="modalTitle"></h2>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<div id="customerInfoModal" class="info-modal">
+    <div class="info-card">
+        <span class="close-info" id="closeInfoBtn">×</span>
+        <h3><i class="fas fa-user-edit"></i> Your Details</h3>
+        <p style="margin-bottom: 1rem; font-size: 0.9rem;">Please enter your name and (Optional) instrument info to proceed with order.</p>
+        <input type="text" id="customerName" placeholder="Your Full Name *" autocomplete="off">
+
+        <input type="text" id="instrumentInfo"
+        placeholder="Instrument Model (Example: PSR-SX600, SX700, Genos 2)"
+        autocomplete="off">
+
+        <label style="display:block;margin-top:15px;margin-bottom:8px;color:#f5b042;font-weight:bold;">
+            Upload Instrument Info File (.n27)
+        </label>
+
+        <input type="file"
+        id="instrumentFile"
+        accept=".n27"
+        style="width:100%;padding:12px;background:rgba(255,255,255,0.08);border:1px solid #f5b042;border-radius:15px;color:white;">
+
+        <p style="font-size:13px;color:#ccc;margin-top:8px;">
+            Optional: Upload your Yamaha Instrument Info (.n27) file Here or WhatsApp for CPF File creation.
+        </p>
+
+        <button id="submitOrderInfoBtn"><i class="fab fa-whatsapp"></i> Generate Order & Chat</button>
+    </div>
+</div>
+
+<script>
+    // ---------- PACK DATA -------------
+    const packs = [
+        { id: "realLoops", name: "HDB REAL LOOPS PACK", price: 799, description: "Ultimate Yamaha Styles + Multipads + Free Voices + Registration Bank", showDetails: true, detailsType: "realLoops" },
+        { id: "beginnerIndian", name: "HDB Beginner Indian Pack", price: 400, description: "Authentic Indian rhythms for beginners", showDetails: false },
+        { id: "tamilChristian", name: "Tamil Christian Songs Pack", price: 400, description: "20+ worship styles for Tamil gospel songs", showDetails: true, detailsType: "tamilChristian" },
+        { id: "malayalamChristian", name: "Malayalam Christian Songs Pack", price: 150, description: "Blissful Malayalam Christian melodies & styles", showDetails: false },
+        { id: "basicWestern", name: "HDB Basic Western Pack", price: 200, description: "Essential Pop, Rock, Ballad western styles", showDetails: false }
+    ];
+
+    const realLoopsStyles = [ "3 4 SOFT BEAT", "3 4", "3 4 DUFF", "3 4 INDIAN", "3 4 TABLA", "4 4 FEEL", "4 4 TABLA", "4 4 TABLA BEAT", "4 4 TABLA PLAY", "4 4 MRIDANGAM", "4 4 MRIDANGAM 2", "4 4 PARAI", "4 4 TABLA (NEER NAMBA)", "4 4 VARITY TABLA", "4 4 SOFT BEAT", "4 4 AKKINI", "4 4 UMMAI ALLAMAL", "6 8 GHATAM", "6 8 GHATAM 2", "6 8 TABLA (NAAN)", "6 8 TABLA", "6 8 TABLA BEAT", "6 8 TAVAL", "6 8 DHOLAK", "6 8 DHOLAK 2", "6 8 GHATAM (UDAINTHA PATHIRAM)", "6 8 SOUTH BEAT", "6 8 TAMIL BEAT", "7 8 BEAT IN", "7 8 AMBARA", "7 8 CHORA PODIJU", "7 8 TABLA", "7 8 TABLA 2", "AMMAI APPAN 4 4", "DOUBLE TEMPO 4 4", "DHOLAK 4 4", "EK 4 4", "ELIJAH 4 4", "THAVAL 4 4 KEETHAM", "THAVAL 6 8 DISCO" ];
+    const realLoopsMultipads = [ "PARAI LOOPS 6 8", "4 4 TABLA VARITY", "3 4 PADS", "DHOLAK 6 8", "TABLA 4 4", "4 COUNT PAD", "BELLS & SHAKERS", "DHOLAK 4 4", "GHATAM 4 4", "BELL" ];
+    const realLoopsVoices = [ "8+ Free Voices" ];
+    const realLoopsReg = [ "HDB REAL LOOPS BANK" ];
+    const tamilChristianStyles = [ "AASAIGAL", "APPA UNGA MADIYILA", "AYYA STHOTHIRAM", "EN ERAVO EN PAGALO", "ENNAI KAANBAVARAE", "ETHANAI ANBU", "MAGALE SEEYON", "ORU MANITHANALUM", "ORU MAGIMAYIN MEGAM", "RAJA UMMAI", "UDAINTHA PATHIRAM", "YETHANAI PORKALAM", "NAAN VAZHVADHU", "THAI POLA", "DEVA PRASANNAM", "KANADHA AATHIN", "KANMALI MEETHU", "KURAIYATHA ANBU", "THAANGUM DEVA", "THOOLIL IRUNTHU" ];
+
+    let cart = [];
+    let pendingDirectOrder = null;     // store { pack, qty } for direct buy flow
+    let isDirectOrderMode = false;      // if true, we skip cart flow
+
+    // DOM refs
+    const packsContainer = document.getElementById("packsContainer");
+    const cartSidebar = document.getElementById("cartSidebar");
+    const cartIconDiv = document.getElementById("cartIcon");
+    const closeCartBtn = document.getElementById("closeCartBtn");
+    const cartItemsContainer = document.getElementById("cartItemsList");
+    const cartTotalSpan = document.getElementById("cartTotal");
+    const cartCountBadge = document.getElementById("cartCountBadge");
+    const checkoutBtn = document.getElementById("checkoutBtn");
+    const modal = document.getElementById("detailsModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const customerInfoModal = document.getElementById("customerInfoModal");
+    const closeInfoBtn = document.getElementById("closeInfoBtn");
+    const submitOrderInfoBtn = document.getElementById("submitOrderInfoBtn");
+
+    // Render packs
+    function renderPacks() {
+        packsContainer.innerHTML = "";
+        packs.forEach(pack => {
+            const card = document.createElement("div");
+            card.className = "pack-card";
+            card.innerHTML = `
+                <div class="pack-title">${pack.name}</div>
+                <div class="pack-price">₹${pack.price}</div>
+                <div class="pack-desc">${pack.description}</div>
+                <div class="btn-group">
+                    <button class="btn btn-buy buy-now" data-id="${pack.id}"><i class="fas fa-bolt"></i> Buy Now</button>
+                    <button class="btn btn-cart add-cart" data-id="${pack.id}"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                </div>
+                ${pack.showDetails ? `<div class="view-details" data-id="${pack.id}"><i class="fas fa-list-ul"></i> View Pack Contents</div>` : ''}
+            `;
+            packsContainer.appendChild(card);
+        });
+        document.querySelectorAll(".buy-now").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const packId = btn.getAttribute("data-id");
+                const pack = packs.find(p => p.id === packId);
+                if(pack) initiateDirectOrder(pack);
+            });
+        });
+        document.querySelectorAll(".add-cart").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const packId = btn.getAttribute("data-id");
+                const pack = packs.find(p => p.id === packId);
+                addToCart(pack);
+            });
+        });
+        document.querySelectorAll(".view-details").forEach(el => {
+            el.addEventListener("click", (e) => {
+                const packId = el.getAttribute("data-id");
+                const pack = packs.find(p => p.id === packId);
+                if(pack && pack.showDetails) showPackDetails(pack);
+            });
+        });
+    }
+
+    function addToCart(pack) {
+        const existing = cart.find(item => item.id === pack.id);
+        if(existing) existing.quantity += 1;
+        else cart.push({ ...pack, quantity: 1 });
+        updateCartUI();
+        openCartSidebar();
+        showFloatingNotify(`➕ ${pack.name} added to cart`);
+    }
+
+    function removeCartItem(packId) {
+        cart = cart.filter(item => item.id !== packId);
+        updateCartUI();
+    }
+
+    function updateCartUI() {
+        if(cartItemsContainer) {
+            if(cart.length === 0) {
+                cartItemsContainer.innerHTML = "<p style='opacity:0.7'>Your cart is empty</p>";
+                cartTotalSpan.innerText = "Total: ₹0";
+                cartCountBadge.innerText = "0";
+                return;
+            }
+            let html = "";
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                html += `<div class="cart-item"><div><strong>${item.name}</strong><br>₹${item.price} x ${item.quantity}</div><div>₹${itemTotal} <button class="remove-item" data-id="${item.id}" style="background:none; border:none; color:#f5b042; cursor:pointer; font-size:1.1rem;"><i class="fas fa-trash-alt"></i></button></div></div>`;
+            });
+            cartItemsContainer.innerHTML = html;
+            cartTotalSpan.innerText = `Total: ₹${total}`;
+            const totalQty = cart.reduce((sum, i) => sum + i.quantity, 0);
+            cartCountBadge.innerText = totalQty;
+            document.querySelectorAll(".remove-item").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    const id = btn.getAttribute("data-id");
+                    removeCartItem(id);
+                });
+            });
+        }
+    }
+
+    function openCartSidebar() { cartSidebar.classList.add("open"); }
+    function closeCartSidebar() { cartSidebar.classList.remove("open"); }
+    cartIconDiv.addEventListener("click", openCartSidebar);
+    closeCartBtn.addEventListener("click", closeCartSidebar);
+
+    // Build final order messages with clean newlines to be safely URI encoded later
+    function buildFinalOrderMessage(packsList, totalAmount, customerName, instrumentInfo) {
+        let itemLines = packsList.map(p => `${p.name} x${p.quantity} = ₹${p.price * p.quantity}`).join("\n");
+        let nameField = customerName && customerName.trim() !== "" ? customerName.trim() : "Customer (Not provided)";
+        let instrumentField = instrumentInfo && instrumentInfo.trim() !== "" ? instrumentInfo.trim() : "Not specified";
+        
+        return `🛍️ *NEW ORDER from HIDDEN DRIFT BEATZ*\n` +
+               `👤 *Customer:* ${nameField}\n` +
+               `🎹 *Instrument:* ${instrumentField}\n` +
+               `📦 *Items:*\n${itemLines}\n` +
+               `💰 *Total Amount:* ₹${totalAmount}\n` +
+               `🔗 Contact via WhatsApp : 9629340744\n` +
+               `📧 Email: hiddendriftbeatz@gmail.com\n\n` +
+               `🙏 Thank you for choosing HIDDEN DRIFT BEATZ!\n` +
+               `Please Share Your Instrument Info To Create CPF File`;
+    }
+
+    function buildDirectOrderMessage(pack, qty, total, customerName, instrumentInfo) {
+        let nameField = customerName && customerName.trim() !== "" ? customerName.trim() : "Customer (Not provided)";
+        let instrumentField = instrumentInfo && instrumentInfo.trim() !== "" ? instrumentInfo.trim() : "Not specified";
+        
+        return `🛒 *Direct Order from HIDDEN DRIFT BEATZ*\n` +
+               `👤 *Customer:* ${nameField}\n` +
+               `🎹 *Instrument:* ${instrumentField}\n` +
+               `📦 *Pack:* ${pack.name} x${qty} = ₹${total}\n` +
+               `💰 *Total:* ₹${total}\n` +
+               `🔗 Contact via WhatsApp : 9629340744\n` +
+               `📧 Email: hiddendriftbeatz@gmail.com\n\n` +
+               `🙏 Thank you for choosing HIDDEN DRIFT BEATZ!\n` +
+               `Please Share Your Instrument Info To Create CPF File`;
+    }
+
+    // Show customer info modal for cart checkout
+    function requestCustomerInfoForCart() {
+        if(cart.length === 0) {
+            alert("Your cart is empty! Add some packs first.");
+            return;
+        }
+        isDirectOrderMode = false;
+        pendingDirectOrder = null;
+        document.getElementById("customerName").value = "";
+        document.getElementById("instrumentInfo").value = "";
+        customerInfoModal.style.display = "flex";
+    }
+
+    function initiateDirectOrder(pack) {
+        isDirectOrderMode = true;
+        pendingDirectOrder = { pack, qty: 1 };
+        document.getElementById("customerName").value = "";
+        document.getElementById("instrumentInfo").value = "";
+        customerInfoModal.style.display = "flex";
+    }
+
+    // Final submission handler - safely encodes text components
+    function submitOrderWithInfo() {
+        const customerName = document.getElementById("customerName").value.trim();
+        const instrumentInfo = document.getElementById("instrumentInfo").value.trim();
+        if(!customerName) {
+            alert("Please enter your name.");
+            return;
+        }
+        const instrumentFile = document.getElementById("instrumentFile").files[0];
+
+        if(!instrumentInfo && !instrumentFile){
+            alert("Please enter your instrument model or upload the Instrument Info (.n27) file.");
+            return;
+        }
+
+        if(instrumentFile){
+            alert("After WhatsApp opens, please attach the selected .n27 file manually before sending your message.");
+        }
+        
+        if(isDirectOrderMode && pendingDirectOrder) {
+            const { pack, qty } = pendingDirectOrder;
+            const total = pack.price * qty;
+            const rawMessage = buildDirectOrderMessage(pack, qty, total, customerName, instrumentInfo);
+            const waLink = `https://wa.me/919629340744?text=${encodeURIComponent(rawMessage)}`;
+            window.open(waLink, '_blank');
+            // Reset
+            isDirectOrderMode = false;
+            pendingDirectOrder = null;
+            customerInfoModal.style.display = "none";
+            showFloatingNotify("✅ Opening WhatsApp with your order!");
+        } 
+        else {
+            // Cart checkout
+            const total = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+            const rawMessage = buildFinalOrderMessage(cart, total, customerName, instrumentInfo);
+            const waLink = `https://wa.me/919629340744?text=${encodeURIComponent(rawMessage)}`;
+            window.open(waLink, '_blank');
+            // Clear cart
+            cart = [];
+            updateCartUI();
+            closeCartSidebar();
+            customerInfoModal.style.display = "none";
+            showFloatingNotify("✅ Order sent! We'll contact you soon on WhatsApp.");
+        }
+    }
+
+    function showPackDetails(pack) {
+        if(pack.id === "realLoops") {
+            modalTitle.innerText = "📀 HDB REAL LOOPS PACK - Complete Content";
+            let html = `<h3>🎧 Styles (${realLoopsStyles.length})</h3><ul class="modal-list">${realLoopsStyles.map(s => `<li>🎵 ${s}</li>`).join('')}</ul>`;
+            html += `<h3>🥁 Multipads</h3><ul class="modal-list">${realLoopsMultipads.map(m => `<li>✨ ${m}</li>`).join('')}</ul>`;
+            html += `<h3>🎚️ Voices & Registration</h3><ul class="modal-list">${realLoopsVoices.map(v => `<li>🎶 ${v}</li>`).join('')}${realLoopsReg.map(r => `<li>📁 ${r}</li>`).join('')}</ul>`;
+            modalBody.innerHTML = html;
+        } else if(pack.id === "tamilChristian") {
+            modalTitle.innerText = "🙏 TAMIL CHRISTIAN SONGS PACK (Styles)";
+            let html = `<h3>✝️ Worship Styles (${tamilChristianStyles.length})</h3><ul class="modal-list">${tamilChristianStyles.map(s => `<li>🎹 ${s}</li>`).join('')}</ul>`;
+            modalBody.innerHTML = html;
+        } else {
+            modalTitle.innerText = pack.name;
+            modalBody.innerHTML = `<p>✨ High-quality styles & presets. Contact for more details.</p>`;
+        }
+        modal.style.display = "flex";
+    }
+
+    function showFloatingNotify(msg) {
+        let toast = document.createElement("div");
+        toast.innerText = msg;
+        toast.style.position = "fixed";
+        toast.style.bottom = "100px";
+        toast.style.right = "30px";
+        toast.style.background = "#1f1730";
+        toast.style.color = "#f5b042";
+        toast.style.padding = "10px 22px";
+        toast.style.borderRadius = "40px";
+        toast.style.borderLeft = "5px solid #f5b042";
+        toast.style.zIndex = "1200";
+        toast.style.fontWeight = "500";
+        toast.style.backdropFilter = "blur(8px)";
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2200);
+    }
+
+    // Event Listeners
+    checkoutBtn.addEventListener("click", requestCustomerInfoForCart);
+    submitOrderInfoBtn.addEventListener("click", submitOrderWithInfo);
+    closeInfoBtn.addEventListener("click", () => { customerInfoModal.style.display = "none"; });
+    window.addEventListener("click", (e) => { if(e.target === customerInfoModal) customerInfoModal.style.display = "none"; });
+    closeModalBtn.addEventListener("click", () => modal.style.display = "none");
+    window.addEventListener("click", (e) => { if(e.target === modal) modal.style.display = "none"; });
+    
+    renderPacks();
+    updateCartUI();
+</script>
+</body>
+</html>
