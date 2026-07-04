@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,10 +29,11 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background-image: url('bg2.jpg');
+            background-image: url('assets/site-bg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             filter: brightness(0.25) contrast(1.1);
         }
 
@@ -56,7 +56,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('bg2.jpg');
+            background-image: url('assets/site-bg.jpg');
             opacity: 0.08;
             pointer-events: none;
             z-index: -1;
@@ -162,6 +162,146 @@
         .social-links a:hover {
             color: #f5b042;
             transform: scale(1.1);
+        }
+
+        /* FREE WEEKLY DROP BOX */
+        .free-download-box {
+            background: linear-gradient(135deg, rgba(25, 15, 45, 0.8), rgba(12, 8, 22, 0.9));
+            backdrop-filter: blur(12px);
+            border: 2px dashed #f5b042;
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem auto 3rem;
+            max-width: 900px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+        .free-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #f5b042;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+        .btn-free {
+            background: linear-gradient(135deg, #ffbc54, #f5b042);
+            color: #1a0e2a;
+            padding: 0.9rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 800;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(245,176,66,0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-free:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 25px rgba(245,176,66,0.5);
+            background: #ffc976;
+        }
+
+        /* FREE STYLES DOWNLOAD PAGE (in-page, no navigation) */
+        #freeFilesPage {
+            display: none;
+        }
+        .free-page-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        .back-link {
+            color: #f5b042;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .back-link:hover { color: #ffce7a; }
+        .free-page-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .free-page-header p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        .files-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .file-card {
+            background: rgba(15, 10, 25, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 1.1rem 1.4rem;
+            border: 1px solid rgba(255, 200, 100, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            transition: transform 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .file-card:hover {
+            transform: translateY(-3px);
+            border-color: #f5b042;
+            background: rgba(20, 12, 32, 0.85);
+        }
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .file-info i.file-icon {
+            font-size: 1.4rem;
+            color: #f5b042;
+        }
+        .file-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .file-note {
+            font-size: 0.78rem;
+            opacity: 0.6;
+        }
+        .btn-download {
+            background: linear-gradient(135deg, #ffbc54, #f5b042);
+            color: #1a0e2a;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.85rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .btn-download:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(245,176,66,0.4);
+            background: #ffc976;
+        }
+        @media (max-width: 600px) {
+            .file-card { flex-direction: column; align-items: flex-start; }
+            .btn-download { width: 100%; justify-content: center; }
         }
 
         /* Packs Grid */
@@ -480,7 +620,7 @@
 <div class="bg-royal-image"></div>
 <div class="bg-overlay"></div>
 
-<div class="container">
+<div class="container" id="homePage">
     <div class="hero-header">
         <div class="channel-brand">
             <img src="https://yt3.ggpht.com/svGuSF2AvDla2xF4sv-GZugL_6k3Fuabxi_Y8Hai3kfUcJpF8od_m4PIApsSyExUainWgddzIm4=s600-c-k-c0x00ffffff-no-rj-rp-mo" alt="HDB Logo" class="logo-image" onerror="this.src='https://placehold.co/70x70/1a0e2a/f5b042?text=HDB'">
@@ -507,12 +647,44 @@
         </div>
     </div>
 
+    <!-- FREE WEEKLY DROP SECTION -->
+    <div class="free-download-box">
+        <div class="free-title"><i class="fas fa-gift"></i> FREE CONTENTS FOR YOUR PERFORMANCE</div>
+        <p class="pack-desc" style="font-size: 1.05rem; margin-bottom: 1.2rem; opacity: 0.9;">
+            Download Your Free Style or Expansion Pack Here 
+        </p>
+        <button class="btn-free" id="openFreeWeeklyBtn">
+            <i class="fas fa-list-ul"></i> Free Styles Download
+        </button>
+        <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.6; font-style: italic;">
+            *Note: If files are password protected, check The Corresponding video content for the code archive password!
+        </p>
+    </div>
+
     <div class="packs-grid" id="packsContainer"></div>
 
     <footer>
         <p>© 2026 HIDDEN DRIFT BEATZ — Owned by <strong>Antrich</strong>. All rights reserved.</p>
         <p><i class="fas fa-envelope"></i> hiddendriftbeatz@gmail.com | <i class="fab fa-whatsapp"></i> WhatsApp: 9629340744</p>
     </footer>
+</div>
+
+<!-- FREE STYLES DOWNLOAD PAGE (shown instead of home page, same file) -->
+<div class="container" id="freeFilesPage">
+    <div class="free-page-topbar">
+        <button class="back-link" id="backToHomeBtn"><i class="fas fa-arrow-left"></i> Back to Home</button>
+    </div>
+
+    <div class="free-page-header">
+        <div class="free-title"><i class="fas fa-gift"></i> Free Styles Download</div>
+        <p>Tap Download next to any file to open its Google Drive link. Stay Tuned For More Updates!</p>
+    </div>
+
+    <div class="files-list" id="filesList"></div>
+
+    <p style="text-align:center; font-size: 0.8rem; margin-top: 2rem; opacity: 0.6; font-style: italic;">
+        *If a file is password protected, check The corresponding Video description for the code.
+    </p>
 </div>
 
 <div id="cartSidebar" class="cart-sidebar">
@@ -569,7 +741,7 @@
 </div>
 
 <script>
-    // ---------- PACK DATA -------------
+    // ---------- PREMIUM PACK DATA -------------
     const packs = [
         { id: "realLoops", name: "HDB REAL LOOPS PACK", price: 799, description: "Ultimate Yamaha Styles + Multipads + Free Voices + Registration Bank", showDetails: true, detailsType: "realLoops" },
         { id: "beginnerIndian", name: "HDB Beginner Indian Pack", price: 400, description: "Authentic Indian rhythms for beginners", showDetails: false },
@@ -578,15 +750,23 @@
         { id: "basicWestern", name: "HDB Basic Western Pack", price: 200, description: "Essential Pop, Rock, Ballad western styles", showDetails: false }
     ];
 
+    // ---------- WEEKLY FREE FILES DATA -------------
+    // Add or edit files here — each one gets its own card with its own Drive link.
+    const freeFiles = [
+        { title: "4 4 VINTAGE TABLA.sty", link: "https://drive.google.com/file/d/1Ea9CNHOFPdkaR2feQszUl34DDQ8Ku-eN/view?usp=sharing" },
+        
+    ];
+
     const realLoopsStyles = [ "3 4 SOFT BEAT", "3 4", "3 4 DUFF", "3 4 INDIAN", "3 4 TABLA", "4 4 FEEL", "4 4 TABLA", "4 4 TABLA BEAT", "4 4 TABLA PLAY", "4 4 MRIDANGAM", "4 4 MRIDANGAM 2", "4 4 PARAI", "4 4 TABLA (NEER NAMBA)", "4 4 VARITY TABLA", "4 4 SOFT BEAT", "4 4 AKKINI", "4 4 UMMAI ALLAMAL", "6 8 GHATAM", "6 8 GHATAM 2", "6 8 TABLA (NAAN)", "6 8 TABLA", "6 8 TABLA BEAT", "6 8 TAVAL", "6 8 DHOLAK", "6 8 DHOLAK 2", "6 8 GHATAM (UDAINTHA PATHIRAM)", "6 8 SOUTH BEAT", "6 8 TAMIL BEAT", "7 8 BEAT IN", "7 8 AMBARA", "7 8 CHORA PODIJU", "7 8 TABLA", "7 8 TABLA 2", "AMMAI APPAN 4 4", "DOUBLE TEMPO 4 4", "DHOLAK 4 4", "EK 4 4", "ELIJAH 4 4", "THAVAL 4 4 KEETHAM", "THAVAL 6 8 DISCO" ];
     const realLoopsMultipads = [ "PARAI LOOPS 6 8", "4 4 TABLA VARITY", "3 4 PADS", "DHOLAK 6 8", "TABLA 4 4", "4 COUNT PAD", "BELLS & SHAKERS", "DHOLAK 4 4", "GHATAM 4 4", "BELL" ];
     const realLoopsVoices = [ "8+ Free Voices" ];
     const realLoopsReg = [ "HDB REAL LOOPS BANK" ];
+    const realLoopsDemoLink = "https://www.youtube.com/playlist?list=PLXcNMvGEbfsq3aNAEYgZuWpxljarK9ZR5";
     const tamilChristianStyles = [ "AASAIGAL", "APPA UNGA MADIYILA", "AYYA STHOTHIRAM", "EN ERAVO EN PAGALO", "ENNAI KAANBAVARAE", "ETHANAI ANBU", "MAGALE SEEYON", "ORU MANITHANALUM", "ORU MAGIMAYIN MEGAM", "RAJA UMMAI", "UDAINTHA PATHIRAM", "YETHANAI PORKALAM", "NAAN VAZHVADHU", "THAI POLA", "DEVA PRASANNAM", "KANADHA AATHIN", "KANMALI MEETHU", "KURAIYATHA ANBU", "THAANGUM DEVA", "THOOLIL IRUNTHU" ];
 
     let cart = [];
-    let pendingDirectOrder = null;     // store { pack, qty } for direct buy flow
-    let isDirectOrderMode = false;      // if true, we skip cart flow
+    let pendingDirectOrder = null;     
+    let isDirectOrderMode = false;      
 
     // DOM refs
     const packsContainer = document.getElementById("packsContainer");
@@ -604,6 +784,13 @@
     const customerInfoModal = document.getElementById("customerInfoModal");
     const closeInfoBtn = document.getElementById("closeInfoBtn");
     const submitOrderInfoBtn = document.getElementById("submitOrderInfoBtn");
+
+    // Free Styles Download page refs
+    const openFreeWeeklyBtn = document.getElementById("openFreeWeeklyBtn");
+    const homePage = document.getElementById("homePage");
+    const freeFilesPage = document.getElementById("freeFilesPage");
+    const backToHomeBtn = document.getElementById("backToHomeBtn");
+    const filesList = document.getElementById("filesList");
 
     // Render packs
     function renderPacks() {
@@ -643,6 +830,27 @@
                 const pack = packs.find(p => p.id === packId);
                 if(pack && pack.showDetails) showPackDetails(pack);
             });
+        });
+    }
+
+    function renderFreeFiles() {
+        filesList.innerHTML = "";
+        freeFiles.forEach(file => {
+            const card = document.createElement("div");
+            card.className = "file-card";
+            card.innerHTML = `
+                <div class="file-info">
+                    <i class="fas fa-file-audio file-icon"></i>
+                    <div>
+                        <div class="file-name">${file.title}</div>
+                        <div class="file-note">Google Drive</div>
+                    </div>
+                </div>
+                <a href="${file.link}" target="_blank" rel="noopener" class="btn-download">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            `;
+            filesList.appendChild(card);
         });
     }
 
@@ -693,7 +901,6 @@
     cartIconDiv.addEventListener("click", openCartSidebar);
     closeCartBtn.addEventListener("click", closeCartSidebar);
 
-    // Build final order messages with clean newlines to be safely URI encoded later
     function buildFinalOrderMessage(packsList, totalAmount, customerName, instrumentInfo) {
         let itemLines = packsList.map(p => `${p.name} x${p.quantity} = ₹${p.price * p.quantity}`).join("\n");
         let nameField = customerName && customerName.trim() !== "" ? customerName.trim() : "Customer (Not provided)";
@@ -725,7 +932,6 @@
                `Please Share Your Instrument Info To Create CPF File`;
     }
 
-    // Show customer info modal for cart checkout
     function requestCustomerInfoForCart() {
         if(cart.length === 0) {
             alert("Your cart is empty! Add some packs first.");
@@ -746,7 +952,6 @@
         customerInfoModal.style.display = "flex";
     }
 
-    // Final submission handler - safely encodes text components
     function submitOrderWithInfo() {
         const customerName = document.getElementById("customerName").value.trim();
         const instrumentInfo = document.getElementById("instrumentInfo").value.trim();
@@ -771,19 +976,16 @@
             const rawMessage = buildDirectOrderMessage(pack, qty, total, customerName, instrumentInfo);
             const waLink = `https://wa.me/919629340744?text=${encodeURIComponent(rawMessage)}`;
             window.open(waLink, '_blank');
-            // Reset
             isDirectOrderMode = false;
             pendingDirectOrder = null;
             customerInfoModal.style.display = "none";
             showFloatingNotify("✅ Opening WhatsApp with your order!");
         } 
         else {
-            // Cart checkout
             const total = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
             const rawMessage = buildFinalOrderMessage(cart, total, customerName, instrumentInfo);
             const waLink = `https://wa.me/919629340744?text=${encodeURIComponent(rawMessage)}`;
             window.open(waLink, '_blank');
-            // Clear cart
             cart = [];
             updateCartUI();
             closeCartSidebar();
@@ -798,6 +1000,7 @@
             let html = `<h3>🎧 Styles (${realLoopsStyles.length})</h3><ul class="modal-list">${realLoopsStyles.map(s => `<li>🎵 ${s}</li>`).join('')}</ul>`;
             html += `<h3>🥁 Multipads</h3><ul class="modal-list">${realLoopsMultipads.map(m => `<li>✨ ${m}</li>`).join('')}</ul>`;
             html += `<h3>🎚️ Voices & Registration</h3><ul class="modal-list">${realLoopsVoices.map(v => `<li>🎶 ${v}</li>`).join('')}${realLoopsReg.map(r => `<li>📁 ${r}</li>`).join('')}</ul>`;
+            html += `<h3>▶️ Demo</h3><ul class="modal-list"><li>🎬 <a href="${realLoopsDemoLink}" target="_blank" rel="noopener" style="color:#f5b042; font-weight:600; text-decoration:underline;">Watch Full Demo Playlist on YouTube</a></li></ul>`;
             modalBody.innerHTML = html;
         } else if(pack.id === "tamilChristian") {
             modalTitle.innerText = "🙏 TAMIL CHRISTIAN SONGS PACK (Styles)";
@@ -828,7 +1031,7 @@
         setTimeout(() => toast.remove(), 2200);
     }
 
-    // Event Listeners
+    // Event Listeners for Core Commerce App
     checkoutBtn.addEventListener("click", requestCustomerInfoForCart);
     submitOrderInfoBtn.addEventListener("click", submitOrderWithInfo);
     closeInfoBtn.addEventListener("click", () => { customerInfoModal.style.display = "none"; });
@@ -836,6 +1039,19 @@
     closeModalBtn.addEventListener("click", () => modal.style.display = "none");
     window.addEventListener("click", (e) => { if(e.target === modal) modal.style.display = "none"; });
     
+    // Free Styles Download -> shows the files page within this same file
+    openFreeWeeklyBtn.addEventListener("click", () => {
+        renderFreeFiles();
+        homePage.style.display = "none";
+        freeFilesPage.style.display = "block";
+        window.scrollTo(0, 0);
+    });
+    backToHomeBtn.addEventListener("click", () => {
+        freeFilesPage.style.display = "none";
+        homePage.style.display = "block";
+        window.scrollTo(0, 0);
+    });
+
     renderPacks();
     updateCartUI();
 </script>
