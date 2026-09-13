@@ -29,12 +29,12 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background-image: url('assets/site-bg.jpg');
+            background-image: url('https://drive.google.com/uc?export=download&id=1JRt3sv_6nQ6U5qJ3Uxtt4_QbeiBrxZ7Q');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            filter: brightness(0.25) contrast(1.1);
+            filter: brightness(0.75) contrast(1.1);
         }
 
         /* Dark gradient overlay to ensure readability and royal depth */
@@ -56,7 +56,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('assets/site-bg.jpg');
+            background-image: url('https://drive.google.com/uc?export=download&id=1JRt3sv_6nQ6U5qJ3Uxtt4_QbeiBrxZ7Q');
             opacity: 0.08;
             pointer-events: none;
             z-index: -1;
@@ -279,6 +279,12 @@
         .file-note {
             font-size: 0.78rem;
             opacity: 0.6;
+        }
+        .file-subtitle {
+            font-size: 0.85rem;
+            color: #f5b042;
+            opacity: 0.85;
+            margin-top: 2px;
         }
         .btn-download {
             background: linear-gradient(135deg, #ffbc54, #f5b042);
@@ -636,7 +642,7 @@
 
     <div class="trust-stats">
         <div class="stat-item"><i class="fas fa-user-check"></i> 200+ Happy Customers</div>
-        <div class="stat-item"><i class="fas fa-cloud-download-alt"></i> 1,00,000+ Free Downloads user</div>
+        <div class="stat-item"><i class="fas fa-cloud-download-alt"></i> 1,00,000+ Free Download users</div>
         <div class="stat-item"><i class="fas fa-certificate"></i> 100% Trusted By Customers</div>
         <div class="stat-item"><i class="fas fa-circle-check"></i> Future Updates</div>
         <div class="social-links">
@@ -744,17 +750,19 @@
     // ---------- PREMIUM PACK DATA -------------
     const packs = [
         { id: "realLoops", name: "HDB REAL LOOPS PACK", price: 799, description: "Ultimate Yamaha Styles + Multipads + Free Voices + Registration Bank", showDetails: true, detailsType: "realLoops" },
-        { id: "beginnerIndian", name: "HDB Beginner Indian Pack", price: 400, description: "Authentic Indian rhythms for beginners", showDetails: false },
-        { id: "tamilChristian", name: "Tamil Christian Songs Pack", price: 400, description: "20+ worship styles for Tamil gospel songs", showDetails: true, detailsType: "tamilChristian" },
+        { id: "beginnerIndian", name: "HDB Beginner Indian Pack", price: 399, description: "Authentic Indian rhythms for beginners", showDetails: false },
+        { id: "tamilChristian", name: "Tamil Christian Songs Pack", price: 399, description: "20+ worship styles for Tamil gospel songs", showDetails: true, detailsType: "tamilChristian" },
         { id: "malayalamChristian", name: "Malayalam Christian Songs Pack", price: 150, description: "Blissful Malayalam Christian melodies & styles", showDetails: false },
-        { id: "basicWestern", name: "HDB Basic Western Pack", price: 200, description: "Essential Pop, Rock, Ballad western styles", showDetails: false }
+        { id: "basicWestern", name: "HDB Basic Western Pack", price: 199, description: "Essential Pop, Rock, Ballad western styles", showDetails: false }
     ];
 
     // ---------- WEEKLY FREE FILES DATA -------------
     // Add or edit files here — each one gets its own card with its own Drive link.
     const freeFiles = [
-        { title: "4 4 VINTAGE TABLA.sty", link: "https://drive.google.com/file/d/1Ea9CNHOFPdkaR2feQszUl34DDQ8Ku-eN/view?usp=sharing" },
-        
+        { title: "4 4 VINTAGE TABLA", subtitle: "Normal Style, Updated : 14 JUN 2026", link: "https://drive.google.com/file/d/1Ea9CNHOFPdkaR2feQszUl34DDQ8Ku-eN/view?usp=sharing" },
+        { title: "ELSHADDAI", subtitle: "Normal Style, Updated 9 AUG 2026", link: "https://drive.google.com/file/d/1IbW8WaTMmVRsRV2s5LgfZ1NSYeUIat0Y/view?usp=sharin" },
+        { title: "Thudhigal Oayaadhu", subtitle: "Normal Style, Updated 13 SEP 2026", link: "https://drive.google.com/file/d/1t2ienC4vmzROZRybNaHwmnpn0E5X_rhd/view?usp=sharing" },
+
     ];
 
     const realLoopsStyles = [ "3 4 SOFT BEAT", "3 4", "3 4 DUFF", "3 4 INDIAN", "3 4 TABLA", "4 4 FEEL", "4 4 TABLA", "4 4 TABLA BEAT", "4 4 TABLA PLAY", "4 4 MRIDANGAM", "4 4 MRIDANGAM 2", "4 4 PARAI", "4 4 TABLA (NEER NAMBA)", "4 4 VARITY TABLA", "4 4 SOFT BEAT", "4 4 AKKINI", "4 4 UMMAI ALLAMAL", "6 8 GHATAM", "6 8 GHATAM 2", "6 8 TABLA (NAAN)", "6 8 TABLA", "6 8 TABLA BEAT", "6 8 TAVAL", "6 8 DHOLAK", "6 8 DHOLAK 2", "6 8 GHATAM (UDAINTHA PATHIRAM)", "6 8 SOUTH BEAT", "6 8 TAMIL BEAT", "7 8 BEAT IN", "7 8 AMBARA", "7 8 CHORA PODIJU", "7 8 TABLA", "7 8 TABLA 2", "AMMAI APPAN 4 4", "DOUBLE TEMPO 4 4", "DHOLAK 4 4", "EK 4 4", "ELIJAH 4 4", "THAVAL 4 4 KEETHAM", "THAVAL 6 8 DISCO" ];
@@ -843,6 +851,7 @@
                     <i class="fas fa-file-audio file-icon"></i>
                     <div>
                         <div class="file-name">${file.title}</div>
+                        ${file.subtitle ? `<div class="file-subtitle">${file.subtitle}</div>` : ""}
                         <div class="file-note">Google Drive</div>
                     </div>
                 </div>
